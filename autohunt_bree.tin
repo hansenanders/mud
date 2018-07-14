@@ -1,0 +1,24 @@
+#var bree_rooms {e;s;s;s;n;n;n;w;e;s;e;e;s;s;n;n;w;w;n;w};
+
+#action {Brand, the shopkeeper} {
+	#untick tick_load_room;
+	sell all from pack;
+	@backpack_clear{};
+};
+
+#action {{tells you: What item?|tells you: Thanks for your business!  Please come again.}} {
+	#showme ACTION__FINISHED_WITH_SHOPKEEPER;
+	@goto_next_room{};
+};
+
+#action {A grimy-looking beggar} {
+	@kill{beggar};
+};
+
+#action {{A strangely-dressed bandit|An intoxicated bandit}} {
+	@kill{bandit};
+};
+
+#action {{some dirty rags : Ok.|a grimy-looking bottle : Ok.}} {
+	@backpack_add{1};
+};

@@ -1,0 +1,22 @@
+#class c_combat kill;
+#class c_combat open;
+#var combat_timer 0;
+
+#action {You attack %*.} {
+	#showme {COMBAT__YOU_ATTACK %1};
+	#tick {tick_combat_timer} {#math combat_timer $combat_timer+1} 1;
+};
+
+#action {%* attacks you.} {
+	 #showme {COMBAT__YOU_ATTACK %1};
+	#tick {tick_combat_timer} {#math combat_timer $combat_timer+1} 1;
+};
+
+#action {You killed %*.} {
+	#showme {COMBAT__YOU_KILLED %1};
+	#untick {tick_combat_timer};
+	#showme {<174>COMBAT TIMER: @get_sec_timer_as_string{$combat_timer}};
+	#var combat_timer 0;
+};
+
+#class c_combat close;

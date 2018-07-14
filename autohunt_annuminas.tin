@@ -1,0 +1,17 @@
+#var annuminas_rooms {w;e;e;w;n;e;w;ne;se;nw;sw;n;ne;nw;sw;w;nw;se;sw;ne;e;nw;n;s;se;se;s;s};
+
+#action {A town guard} {
+	@kill{guard};
+};
+
+#action {A nomad is sleeping here} {
+	@kill{nomad};
+};
+
+#action {A very drunk nomad is singing here} {
+	@kill{drunk};
+};
+
+#action {A nomad is picking through the debris} {
+	@kill{nomad};
+};

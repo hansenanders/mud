@@ -1,0 +1,17 @@
+#class travelto_class open;
+#var travelto_path {};
+
+#action {Travelto: Destination reached!} {
+	#path walk f;
+};
+
+#alias {start_travel} {
+       #path load $travelto_path;
+       #path walk f;
+};
+
+#event {END OF PATH} {
+ #class travelto_class kill;
+};
+
+#class travelto_close;

@@ -1,0 +1,48 @@
+#var druwaur_rooms {n;e;nw;nw;sw;s;e;w;s;e;w;se;e;ne;w;e;n;n;w;e;n;e;w;n;nw;w;w;e;sw;se;nw;s;s;se;se;w;s};
+
+#action {A solemn-looking woman} {
+	#untick tick_load_room;
+	sell all from pack;
+	@backpack_clear{};
+};
+
+#action {{tells you: What item?|tells you: Thanks for your business!  Please come again.}} {
+	#showme ACTION__FINISHED_WITH_SHOPKEEPER;
+	@goto_next_room{};
+};
+
+#action {A town guard} {
+	@kill{guard};
+};
+
+#action {{An old woman|A distressed woman}} {
+	@kill{woman};
+};
+
+#action {A tall man tries to console his wife} {
+	@kill{man};
+};
+
+#action {Partir paces around the room nervously} {
+	@kill{partir};
+};
+
+#action {Derhir stands here, proudly presenting his armour} {
+	@kill{derhir};
+};
+
+#action {An ugly husband} {
+	@kill{husband};
+};
+
+#action {A plump wife} {
+	@kill{wife};
+};
+
+#action {A small girl} {
+	@kill{girl};
+};
+
+#action {A playful boy} {
+	@kill{boy};
+};

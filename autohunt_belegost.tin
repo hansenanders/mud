@@ -1,0 +1,71 @@
+#nop belegost_rooms start from belegost map;
+#nop bree_rooms starts from bree signpost;
+#var belegost_rooms {s;s;s;w;w;n;n;n;n;w;n;n;w;e;e;n;e;e;n;s;w;w;n;w;w;w;s;s;w;s;w;e;e;s;e;e;e;s;s;s;s;e;e;e;s;s;s;temple;e;w;s;s;n;n;w;s;n;n;s;w;s;n;n;s;w;n;s;s;n;w;n;s;s;n;e;e;e;e;out;n;n;n;w;n;n;n};
+
+#var buy_new_torch 0;
+
+
+#action {Glimdan the shopkeeper} {
+	#untick tick_load_room;
+	sell all from pack;
+	@backpack_clear{};
+
+	#if {$buy_new_torch == 1} {
+	    buy torch;
+	};
+
+	#tick shopkeeper {#showme TRIGGER__FINISHED_WITH_SHOPKEEPER} 2;
+	#tick check_torch {inventory} 5;
+};
+
+#action {TRIGGER__FINISHED_WITH_SHOPKEEPER} {
+	#untick shopkeeper;
+	
+	#showme ACTION__FINISHED_WITH_SHOPKEEPER;
+	light torch;
+	@goto_next_room{};
+};
+
+#action {A torch (burning) (in hands).} {
+	#untick check_torch;
+	#var buy_new_torch 0;	
+};
+
+#action {The torch flickers and dies.} {
+	#showme ACTION__BUY_NEW_TORCH;
+	#var buy_new_torch 1;
+	drop torch;
+};
+
+
+#action {A priest of Mahal stands here} {
+	@kill{priest};
+};
+
+#action {a holy symbol : Ok.} {
+	@backpack_add{1};
+};
+
+#action {A dwarven bachelor} {
+	@kill{dwarf};
+};
+
+#action {An old lost miner is here} {
+	@kill{miner};
+};
+
+#action {{Son Lamplight|Mother Lamplight|Daughter Lamplight}} {
+	@kill{mother};
+};
+
+#action {{Son Stonehelm|Mother Stonehelm|Father Stonehelm|Daughter Stonehelm}} {
+	@kill{father};
+};
+
+#action {{Son Goldring|Mother Goldring|Father Goldring|Daughter Goldring}} {
+	@kill{father};
+};
+
+#action {{Wife Strongblade|Husband Strongblade}} {
+	@kill{husband};
+};

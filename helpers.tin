@@ -1,0 +1,17 @@
+#class c_helpers kill;
+#class c_helpers open;
+
+#function {get_sec_timer_as_string} {
+	  #local mins 0;
+	  #local secs 0;
+
+	  #if {%1 < 60} {
+	      #math secs %1;
+	  }; #else {
+	      #math mins %1/60;
+	      #math secs {%1-($mins*60)};
+	  };
+	  #return {$mins m $secs s};
+};
+
+#class c_helpers close;

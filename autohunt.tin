@@ -1,0 +1,179 @@
+#var next_room_speed 1;
+
+#var stats_kills_this_round 0;
+#var stats_kills_total 0;
+#var stats_gold 0;
+#var stats_exp 0;
+#var stats_time_spent 0;
+
+#var rounds 0;
+#var round_timer_default 300;
+#var round_timer $round_timer_default;
+
+#var autohunt_rooms {};
+
+#var backpack_max_size 2;
+#var backpack_items 0;
+#var backpack_full 0;
+
+
+#nop press F8 to view autohunt stats
+#macro {\e[19~} {autohunt_print_stats};
+#alias {autohunt_print_stats} {
+	  #showme {************ STATS START ************};
+	  #showme {ROUND: $rounds};
+	  #showme {ROUND KILLS: $stats_kills_this_round};
+	  #showme {TOTAL KILLS: $stats_kills_total};
+	  #showme {GOLD: $stats_gold};
+	  #showme {EXP: $stats_exp};
+	  #showme {TIMER: @get_sec_timer_as_string{$stats_time_spent}};
+	  #showme {************ STATS END ************};
+
+};
+
+
+#function {backpack_add} {
+	  #showme ACTION__BACKPACK_ADD;
+	  #math backpack_items $backpack_items+%1;
+
+	  #if {$backpack_items >= $backpack_max_size} {
+	      #showme ACTION__BACKPACK_FULL;
+	      #var backpack_full 1;
+	  };
+};
+
+#function {backpack_clear} {
+	  #showme ACTION__BACKPACK_CLEARED;
+	  #var backpack_items 0;
+	  #var backpack_full 0;
+};
+
+#function {loot_corpses} {
+	  #math idx 1;
+	  #while {$idx <= %1} {
+	  	 get all from corpse $idx into backpack;
+	  	 get all from corpse $idx;
+		 #math idx $idx+1;
+	  };
+};
+
+#nop Debugging func that just counts mobs.;
+#function {kill2} {
+	#untick tick_load_room;
+	#math mobs_seen $mobs_seen+1;
+	@goto_next_room{};
+};
+
+#function {kill} {
+	#if {$backpack_full != 0} {#return;};
+
+	#untick tick_load_room;
+	kill %1;
+};
+
+
+#function {goto_next_room} {
+	  #if {$waiting_for_restart == 1} {#return;};
+	  
+	  #tick {tick_load_room} {#path walk f;} {$next_room_speed};
+};
+
+#action {COMBAT__YOU_ATTACK %*} {
+	#showme ACTION__ATTACKING;
+	#tick {tick_headbutt} {headbutt} 10;
+	#list opponents add %1;
+};
+
+#action {is bleeding to death and needs to be bandaged} {
+	#showme ACTION__BLEEDING;
+	kill;
+};
+
+#action {Current experience: %d} {
+	#if {&{stats_start_exp} == 0} {
+	    #var stats_start_exp %1;
+	    #return;
+	}; #else {
+	   #math stats_exp {%1-$stats_start_exp};
+	};
+
+	#showme ACTION__COMBAT_ENDED;
+	#untick {tick_headbutt};
+	#list opponents size number_of_corpses;
+	@loot_corpses{$number_of_corpses};
+	#list opponents clear;
+	#tick {tick_rest} {rest;hp} {5};
+};
+
+#action {You put %d gold in your pockets} {
+	#math stats_gold $stats_gold+%1;
+};
+
+#action {You get %d gold.} {
+	#math stats_gold $stats_gold+%1;
+};
+
+#action {COMBAT__YOU_KILLED %w} {
+	#showme ACTION__KILLED_TARGET;
+	#math stats_kills_this_round $stats_kills_this_round+1;	
+	#math stats_kills_total $stats_kills_total+1;
+
+	#nop We use exp command to check if we're still in combat.;
+	exp;
+};
+
+#action {Headbutt whom?} {
+	#untick {tick_headbutt};
+};
+
+#action {HP: %d/%d} {
+	#showme ACTION__RESTING;
+	#if {%1==%2} {
+	    #showme {Fully rested! Now Im ready for some killing!};
+	    #untick tick_rest;
+	    @goto_next_room{};
+ 	}
+};
+
+#event {END OF PATH} {
+       #showme ACTION__END_OF_PATH;
+       
+       #untick tick_load_room;
+       #math rounds $rounds+1;
+       autohunt_print_stats;
+
+       #if {$stats_kills_this_round == 0} {
+       	   #var round_timer $round_timer_default;
+       }; #else {
+       	   #var round_timer 1;
+       };
+       #var stats_kills_this_round 0;
+
+       #tick {tick_restart} {
+       	     #showme RESTART_TICK_FIRED;
+	     #var waiting_for_restart 0;
+
+	     #untick tick_restart;
+	     #path load $autohunt_rooms;
+	     @goto_next_room{};
+
+	     #showme {NEW ROUND STARTS NOW!};
+       } $round_timer;
+
+       #var waiting_for_restart 1;
+       #showme {NEXT ROUND STARTS IN $round_timer secs.};
+};
+
+
+#function {start_autohunt} {
+       #showme AUTOHUNT_START;
+       #tick {tick_time_spent} {
+       	     #math stats_time_spent $stats_time_spent+1;
+       } 1;
+       exp;
+
+       brief on;
+       #path load $autohunt_rooms;
+       @goto_next_room{};
+       #showme AUTOHUNT_END;
+};

@@ -1,0 +1,183 @@
+#nop press F5 to connect 
+#macro {\e[15~} {#ses t2t t2tmud.org 9999};
+
+#event {SESSION CONNECTED} {
+	#split;
+};
+
+#read helpers.tin;
+#read combat.tin;
+
+#alias hb headbutt;
+#alias k  kill;
+#alias loot get all from corpse;
+
+#high {An ugly orc} {b yellow};
+
+
+#tab annuminas;
+#tab belegost;
+#tab bree;
+#tab bywater;
+#tab greyhavens;
+#tab lothlorien;
+#tab micheldelving;
+#tab rhosgobel;
+#tab rivendell;
+#tab travelto;
+
+#tab adornas_to_bree;
+#tab adornas_to_druwaur;
+#tab adornas_to_edoras;
+#tab annuminas_to_bywater;
+#tab belegost_map_to_sign;
+#tab belegost_sign_to_map;
+#tab bree_to_adornas;
+#tab bree_to_buckland;
+#tab bree_to_bywater;
+#tab bree_to_druwaur;
+#tab bree_to_rivendell;
+#tab buckland_to_bree;
+#tab bywater_to_annuminas;
+#tab bywater_to_micheldelving;
+#tab druwaur_to_bree;
+#tab micheldelving_to_bywater;
+#tab bywater_to_orcs;
+#tab orcs_to_bywater;
+
+#alias {adornas_to_bree}	{travelto bree};
+#alias {adornas_to_druwaur}	{travelto druwaur};
+#alias {adornas_to_edoras}	{travelto edoras};
+#alias {belegost_sign_to_map}	{down;s;2w;s;w;2s;e;4s};
+#alias {belegost_map_to_sign}	{4n;w;2n;e;n;2e;n;up};
+#alias {bree_to_adornas}	{travelto adornas};
+#alias {bree_to_buckland}	{7w;sw;2w;s};
+#alias {bree_to_bywater}	{travelto bywater};
+#alias {bree_to_druwaur}  	{travelto druwaur};
+#alias {bree_to_rivendell} 	{travelto rivendell};
+#alias {buckland_to_bree}	{n;2e;ne;7e};
+#alias {bywater_to_micheldelving}	{8w;8w;3s};
+#alias {druwaur_to_bree}		{travelto bree};
+#alias {micheldelving_to_bywater}	{3n;8e;8e};
+#alias {bywater_to_annuminas}		{7w;10n;8n;3e};
+#alias {annuminas_to_bywater}		{3w;10s;8s;7e};
+#alias {bywater_to_orcs}		{10w;2w;10n;10n;4n;5e};
+#alias {orcs_to_bywater}		{5w;10s;10s;4s;10e;2e};
+#alias {bree_to_dike}			{4w;10n;10n};
+#alias {dike_to_bree}			{10s;10s;4e};
+
+#tab bree_to_greyhavens;
+#alias {bree_to_greyhavens} {
+       #read travel.tin;
+       #var travelto_path {travelto bywater;travelto greyhavens};
+       start_travel;
+};
+
+#tab greyhavens_to_bree;
+#alias {greyhavens_to_bree} {
+       #read travel.tin;
+       #var travelto_path {travelto bywater;travelto bree};
+       start_travel;
+};
+
+#tab bree_to_belegost;
+#alias {bree_to_belegost} {
+       #read travel.tin;
+       #var travelto_path {travelto bywater;travelto belegost};
+       start_travel;
+};
+
+#tab belegost_to_bree;
+#alias {belegost_to_bree} {
+       #read travel.tin;
+       #var travelto_path {travelto bywater;travelto bree};
+       start_travel;
+};
+
+#tab bree_to_edoras;
+#alias {bree_to_edoras} {
+       #read travel.tin;
+       #var travelto_path {travelto druwaur;travelto edoras};
+       start_travel;
+};
+
+#tab edoras_to_bree;
+#alias {edoras_to_bree} {
+       #read travel.tin;
+       #var travelto_path {travelto druwaur;travelto bree};
+       start_travel;
+};
+
+#tab bree_to_rhosgobel;
+#alias {bree_to_rhosgobel} {
+       #read travel.tin;
+       #var travelto_path {travelto rivendell;travelto rhosgobel};
+       start_travel;
+};
+
+#tab rhosgobel_to_bree;
+#alias {rhosgobel_to_bree} {
+       #read travel.tin;
+       #var travelto_path {travelto rivendell;travelto bree};
+       start_travel;
+};
+
+#tab rhosgobel_to_erebor;
+#alias {rhosgobel_to_erebor} {
+       #read travel.tin;
+       #var travelto_path {travelto thranduils;travelto erebor};
+       start_travel;
+};
+
+#tab erebor_to_rhosgobel;
+#alias {erebor_to_rhosgobel} {
+       #read travel.tin;
+       #var travelto_path {travelto thranduils;travelto rhosgobel};
+       start_travel;
+};
+
+#alias {autohunt_bree} {
+ #class c_autohunt read autohunt.tin;
+ #class c_autohunt_bree read autohunt_bree.tin;
+
+ #var autohunt_rooms $bree_rooms;
+ @start_autohunt{};
+};
+
+#tab autohunt_belegost;
+#alias {autohunt_belegost} {
+ #class c_autohunt read autohunt.tin;
+ #class c_autohunt_belegost read autohunt_belegost.tin;
+
+ #var autohunt_rooms $belegost_rooms;
+ @start_autohunt{};
+};
+
+#tab autohunt_greyhavens;
+#alias {autohunt_greyhavens} {
+ #class c_autohunt_base read autohunt.tin;
+ #class c_autohunt_greyhavens read autohunt_greyhavens.tin;
+
+ #var autohunt_rooms $greyhavens_rooms;
+ @start_autohunt{};
+};
+
+#tab autohunt_druwaur;
+#alias {autohunt_druwaur} {
+ #class c_autohunt_base read autohunt.tin;
+ #class c_autohunt_druwaur read autohunt_druwaur.tin;
+
+ #var autohunt_rooms $druwaur_rooms;
+ @start_autohunt{};
+};
+
+#tab autohunt_annuminas;
+#alias {autohunt_annuminas} {
+ #class c_autohunt_base read autohunt.tin;
+ #class c_autohunt_annuminas read autohunt_annuminas.tin;
+
+ #var autohunt_rooms $annuminas_rooms;
+ @start_autohunt{};
+};
+
+
