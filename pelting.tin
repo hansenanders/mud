@@ -1,0 +1,29 @@
+#action {is bleeding to death and needs to be bandaged} {
+	#showme ACTION__BLEEDING;
+	kill;
+};
+
+
+#action {COMBAT__YOU_KILLED %w} {
+	#showme ACTION__KILLED_TARGET;
+	skin corpse;
+	attach pelt to string;
+	eat corpse;
+};
+
+#
+
+#high {A weasel} {b yellow, black};
+#high {A wary wolf} {b yellow, black};
+#high {A black viper} {b yellow, black};
+#high {A black bear} {b yellow, black};
+#high {A whitetail deer} {b yellow, black};
+
+
+#action {A weasel darts by you with a growl} {kill weasel};
+#action {A wary wolf watches you} {kill wolf};
+#action {A black viper hisses at you} {kill viper};
+#action {A black bear} {kill bear};
+#action {A whitetail deer} {kill deer};
+
+

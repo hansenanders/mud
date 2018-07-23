@@ -1,0 +1,41 @@
+#var framsburg_rooms {out;w;n;s;s;w;e;e;e;s;n;e;w;n;e;w;w;wagon;out;e;n;ne;e;n;ne;w;w;s;s;sw;s;w;wagon};
+
+#action {Malcolm, the shopkeeper} {
+	#untick tick_load_room;
+	sell all from pack;
+	sell spear 1;
+	sell spear 2;
+	sell vest;
+	sell hide;
+	wield sword;
+	@backpack_clear{};
+};
+
+#action {{tells you: What item?|tells you: Thanks for your business!  Please come again.}} {
+	#showme ACTION__FINISHED_WITH_SHOPKEEPER;
+	@goto_next_room{};
+};
+
+#action {An intimidating guard} {
+	@kill{guard};
+};
+
+#action {The men's leader} {
+	@kill{leader};
+};
+
+#action {{An injured soldier|A gruff soldier|A large soldier}} {
+	@kill{soldier 1};
+	@kill{soldier 2};
+	@kill{soldier 3};
+};
+
+#action {{An ugly half-orc|An injured orc}} {
+	@kill{orc 1};
+	@kill{orc 2};
+	@kill{orc 3};
+};
+
+#action {The orc chieftain} {
+	@kill{chieftain};
+};

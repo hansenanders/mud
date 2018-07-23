@@ -8,12 +8,25 @@
 #read helpers.tin;
 #read combat.tin;
 
-#alias hb headbutt;
-#alias k  kill;
-#alias loot get all from corpse;
+#alias hb	{headbutt};
+#alias k 	{kill};
+#alias loot	{get all from corpse};
+#alias loot2	{store sword;get all from corpse;get sword from baldric;wield claymore};
+#alias skinna	{skin corpse;attach pelt to string;eat corpse};
+#alias eat_bread       {order bread; eat bread};
+#alias drink_milk      {order milk;drink milk;put bottle in can};
 
+#alias bread_in_pack   {order bread;put bread into pack};
+
+#nop type "get dagger" after fight with guard;
+#alias micheldelving_dagger  {4n;in;2n;2w;n;get dagger;s;2e;2s;out;4s};
+#alias micheldelving_dagger2 {4n;in;e;bump into pedestal};
+
+#alias rivendell_sindarin_gear {do s,sw,sw,path,e,porch,enter,n,gargen,s,push vines,trail,e,reach into hole,get torch,light torch,s};
+#nop kill troll 1,2 and search hay, go north kill hrugg, loot shield, unlock chest with key
+
+#alias rivendell_pelt_gear {do 3s,5w,12n,3e,path,squeeze through gap};
 #high {An ugly orc} {b yellow};
-
 
 #tab annuminas;
 #tab belegost;
@@ -25,6 +38,10 @@
 #tab rhosgobel;
 #tab rivendell;
 #tab travelto;
+
+#tab lothlorien_trainer;
+#tab rivendell_sindarin_gear;
+#tab rivendell_pelt_gear;
 
 #tab adornas_to_bree;
 #tab adornas_to_druwaur;
@@ -44,6 +61,11 @@
 #tab micheldelving_to_bywater;
 #tab bywater_to_orcs;
 #tab orcs_to_bywater;
+#tab rhosgobel_to_framsburg;
+#tab framsburg_to_rhosgobel;
+
+#alias rivendell_goblinpack {do s,sw,sw,2s,3w,27s,se,se,e,e,part bushes,cave};
+
 
 #alias {adornas_to_bree}	{travelto bree};
 #alias {adornas_to_druwaur}	{travelto druwaur};
@@ -65,6 +87,9 @@
 #alias {orcs_to_bywater}		{5w;10s;10s;4s;10e;2e};
 #alias {bree_to_dike}			{4w;10n;10n};
 #alias {dike_to_bree}			{10s;10s;4e};
+#alias {rhosgobel_to_framsburg}		{do 2s, 17w, 32n};
+#alias {framsburg_to_rhosgobel}		{do 32s, 17e, 2n};
+#alias {lothlorien_trainer}		{do 2e;n;e;get bucket;draw water from stream;w;enter;give bucket to savareth};
 
 #tab bree_to_greyhavens;
 #alias {bree_to_greyhavens} {
@@ -180,4 +205,17 @@
  @start_autohunt{};
 };
 
+#tab autohunt_framsburg;
+#alias {autohunt_framsburg} {
+ #class c_autohunt_base read autohunt.tin;
+ #class c_autohunt_framsburg read autohunt_framsburg.tin;
+
+ #var autohunt_rooms $framsburg_rooms;
+ @start_autohunt{};
+};
+
+#tab start_pelting
+#alias {start_pelting} {
+ #class c_start_pelting read pelting.tin;
+};
 
