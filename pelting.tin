@@ -6,24 +6,49 @@
 
 #action {COMBAT__YOU_KILLED %w} {
 	#showme ACTION__KILLED_TARGET;
+	wield dagger;
 	skin corpse;
 	attach pelt to string;
 	eat corpse;
+	wield sword 1;
 };
 
-#
+#nop a Chipmunk pelt :	You get 5 gold.;
+#nop a Rabbit pelt : 	You get 11 gold.;
+#nop a Squirrel pelt : 	You get 11 gold.;
+#nop a Fox pelt :    	You get 17 gold.;
+#nop a Snake pelt : 	You get 17 gold.;
+#nop a Deer pelt :	You get 19 gold.;
+#nop a Bear pelt : 	You get 29 gold.;
+#nop a Black viper pelt : You get 29 gold.;
+#nop a Weasel pelt : 	  You get 31 gold.;
+#nop a Wolf pelt : 	  You get 41 gold.;
 
+#high {The pelt string is too heavily loaded.} {red underscore blink};
 #high {A weasel} {b yellow, black};
 #high {A wary wolf} {b yellow, black};
+#high {A large grey wolf} {b yellow, black};
 #high {A black viper} {b yellow, black};
 #high {A black bear} {b yellow, black};
 #high {A whitetail deer} {b yellow, black};
+#high {A tall stag} {b yellow, black};
+
+#high {A dirty ram} {b yellow, black};
+#high {A meek ewe} {b yellow, black};
+#high {A brown groundhog} {b yellow, black};
+#high {A tired ox} {b yellow, black};
 
 
-#action {A weasel darts by you with a growl} {kill weasel};
-#action {A wary wolf watches you} {kill wolf};
-#action {A black viper hisses at you} {kill viper};
+#action {A weasel} {kill weasel};
+#action {A wary wolf} {kill wolf};
+#action {A large grey wolf} {kill wolf};
+#action {A black viper} {kill viper};
 #action {A black bear} {kill bear};
 #action {A whitetail deer} {kill deer};
+#action {A tall stag} {kill stag};
+#action {A dirty ram} {kill ram};
+#action {A meek ewe} {kill ewe};
+#action {A brown groundhog} {kill groundhog};
+#action {A tired ox} {kill ox};
 
 

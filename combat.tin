@@ -1,5 +1,7 @@
 #class c_combat kill;
 #class c_combat open;
+#read helpers.tin;
+
 #var combat_timer 0;
 
 #action {You attack %*.} {
@@ -12,7 +14,7 @@
 	#tick {tick_combat_timer} {#math combat_timer $combat_timer+1} 1;
 };
 
-#action {You killed %*.} {
+#action {%* has died.} {
 	#showme {COMBAT__YOU_KILLED %1};
 	#untick {tick_combat_timer};
 	#showme {<174>COMBAT TIMER: @get_sec_timer_as_string{$combat_timer}};

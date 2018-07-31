@@ -1,0 +1,372 @@
+#var test_failed 0;
+
+#function {assert} {
+	  #if {%1 != %2} {
+	     #showme {----------------- ASSERTION: %1 =! %2 -------------};
+	     #var test_failed 1;
+	  };
+	  #return;
+};
+
+#function {runtest} {
+	  #if {$test_failed == 1} {#return};
+	  #showme {};
+	  #showme {*************** RUNNING TEST: %1 ********************};
+	  %1;
+
+	  #if {$test_failed == 1} {
+	      #showme {********************* TEST %1 FAILED! **************};
+	      #showme {};
+          };
+	  #else {
+	      #showme {********************* TEST %1 ENDED ****************};
+	      #showme {};
+	  };
+	  #return;
+};
+
+#alias {test_no_mobs} {
+        #read pelt/pelting.tin;
+
+	#var TESTING 1;
+        autohunt_linhir;
+       
+        #showme {Do: starting commands.};
+	#showme {HP:190 EP:190> };
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme { A young woman};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)}
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+	
+	@assert{$x_coord;10};
+	@assert{$y_coord;0};
+	@assert{$state;3};
+	@assert{$do_action_cmds[1];{do 10 east}};
+};
+
+
+#alias {test_no_mobs_go_north} {
+        #read pelt/pelting.tin;
+
+	#var TESTING 1;
+	#list do_action_cmds clear;
+        autohunt_linhir;
+       
+        #showme {Do: starting commands.};
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {The Plains(w, s, e and n)};
+	#showme {The Plains(s, w, n and e)};
+	#showme {Do: Commands completed.};
+
+	@assert{$x_coord;3};
+	@assert{$y_coord;0};
+	@assert{$state;3};
+	@assert{$do_action_cmds[1];{do 3 east}};
+
+        #showme {Do: starting commands.};
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {The Plains(w, s, e and n)};
+	#showme {The Plains(s, w, n and e)};
+	#showme {Do: Commands completed.};
+
+	@assert{$x_coord;0};
+	@assert{$y_coord;0};
+	@assert{$state;4};
+	@assert{$do_action_cmds[2];{do 1 north}};
+ 
+        #showme {Do: starting commands.};
+	#showme {The Plains(s, w, n and e)};
+	#showme {Do: Commands completed.};
+
+	@assert{$x_coord;0};
+	@assert{$y_coord;1};
+	@assert{$state;1};
+};
+
+#alias {test_one_mob} {
+        #read pelt/pelting.tin;
+
+	#var TESTING 1;
+	#list do_action_cmds clear;
+        autohunt_linhir;
+       
+        #showme {Do: starting commands.};
+	#showme {HP:190 EP:190> };
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme { A tired ox};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme { A young woman};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)}
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+	
+	@assert{$x_coord;10};
+	@assert{$y_coord;0};
+	@assert{$state;2};
+	@assert{$do_action_cmds[1];{do 5 east}};
+
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme { A tired ox};
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+
+	@assert{$state;2};
+	@assert{$do_action_cmds[2];{kill ox}};
+
+	#showme {You attack Ox.};
+	#showme {HP:190 EP:190> };
+	#showme {You hit Ox, and the blue blade becomes RED.};
+	#showme {Ox bleats in terror and misses you.};
+	#showme {Ox falls to the ground.};
+	#showme {Ox is bleeding to death and needs to be bandaged!};
+
+	@assert{$state;2};
+	@assert{$do_action_cmds[3];{kill}};
+
+	#showme {You decide to put Ox out of her misery.};
+	#showme {HP:189 EP:190> };
+	#showme {You killed Ox.};
+	#showme {Congratulations! You have successfully tipped a sheep!};
+	#showme {Ox has died.};
+	#showme {You remove a short steel sword.};
+	#showme {You wield a long dagger.};
+	#showme {HP:189 EP:190> };
+	#showme {You skin the corpse, separating a nice clean pelt from it.};
+	#showme {You sheath your short sword.};
+	#showme {HP:189 EP:190> };
+	#showme {You attach an Ox pelt to your pelt string.};
+	#showme {HP:189 EP:190> };
+	#showme {You eat corpse of Ox.};
+	#showme {HP:190 EP:190> };
+	#showme {You remove a long dagger.};
+	#showme {A cold feeling runs through your body.};
+	#showme {You wield a short steel sword.};
+	#showme {HP:190 EP:190> };
+
+	@assert{$do_action_cmds[4];{do 5 east}};
+	
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+
+	@assert{$state;4};
+	@assert{$x_coord;0};
+	@assert{$ycoord;0};
+};
+
+
+#alias {test_multiple_mobs} {
+        #read pelt/pelting.tin;
+
+	#var TESTING 1;
+	#list do_action_cmds clear;
+        autohunt_linhir;
+       
+        #showme {Do: starting commands.};
+	#showme {HP:190 EP:190> };
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme { A tired ox};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme { A young woman};
+	#showme { A meek ewe};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)}
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+	
+	@assert{$x_coord;10};
+	@assert{$y_coord;0};
+	@assert{$state;2};
+	@assert{$do_action_cmds[1];{do 5 east}};
+
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme { A meek ewe};
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+
+	@assert{$state;2};
+	@assert{$do_action_cmds[2];{kill ewe}};
+	@assert{$x_coord;8};
+
+	#showme {You attack Ewe.};
+	#showme {HP:190 EP:190> };
+	#showme {You hit Ewe, and the blue blade becomes RED.};
+	#showme {Ewe bleats in terror and misses you.};
+	#showme {Ewe falls to the ground.};
+	#showme {Ewe is bleeding to death and needs to be bandaged!};
+
+	@assert{$state;2};
+	@assert{$do_action_cmds[3];{kill}};
+
+	#showme {You decide to put Ewe out of her misery.};
+	#showme {HP:189 EP:190> };
+	#showme {You killed Ewe.};
+	#showme {Congratulations! You have successfully tipped a sheep!};
+	#showme {Ewe has died.};
+	#showme {You remove a short steel sword.};
+	#showme {You wield a long dagger.};
+	#showme {HP:189 EP:190> };
+	#showme {You skin the corpse, separating a nice clean pelt from it.};
+	#showme {You sheath your short sword.};
+	#showme {HP:189 EP:190> };
+	#showme {You attach an Ewe pelt to your pelt string.};
+	#showme {HP:189 EP:190> };
+	#showme {You eat corpse of Ewe.};
+	#showme {HP:190 EP:190> };
+	#showme {You remove a long dagger.};
+	#showme {A cold feeling runs through your body.};
+	#showme {You wield a short steel sword.};
+	#showme {HP:190 EP:190> };
+
+	@assert{$do_action_cmds[4];{do 3 east}};
+
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme { A tired ox};
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+
+	@assert{$state;2};
+	@assert{$do_action_cmds[2];{kill ewe}};
+	@assert{$x_coord;5};
+
+	#showme {You attack Ox.};
+	#showme {HP:190 EP:190> };
+	#showme {You hit Ox, and the blue blade becomes RED.};
+	#showme {Ox bleats in terror and misses you.};
+	#showme {Ox falls to the ground.};
+	#showme {Ox is bleeding to death and needs to be bandaged!};
+
+	@assert{$state;2};
+	@assert{$do_action_cmds[3];{kill}};
+
+	#showme {You decide to put Ox out of her misery.};
+	#showme {HP:189 EP:190> };
+	#showme {You killed Ox.};
+	#showme {Congratulations! You have successfully tipped a sheep!};
+	#showme {Ox has died.};
+	#showme {You remove a short steel sword.};
+	#showme {You wield a long dagger.};
+	#showme {HP:189 EP:190> };
+	#showme {You skin the corpse, separating a nice clean pelt from it.};
+	#showme {You sheath your short sword.};
+	#showme {HP:189 EP:190> };
+	#showme {You attach an Ox pelt to your pelt string.};
+	#showme {HP:189 EP:190> };
+	#showme {You eat corpse of Ox.};
+	#showme {HP:190 EP:190> };
+	#showme {You remove a long dagger.};
+	#showme {A cold feeling runs through your body.};
+	#showme {You wield a short steel sword.};
+	#showme {HP:190 EP:190> };
+
+	@assert{$do_action_cmds[4];{do 5 east}};
+	
+	#showme {The Lebennin Road(s, w, n, e and nw)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(w, s, e and n)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {The Plains(s, w, n and e)};
+	#showme {HP:190 EP:190> };
+	#showme {Do: Commands completed.};
+	#showme {HP:190 EP:190>};
+
+	@assert{$state;4};
+	@assert{$x_coord;0};
+	@assert{$ycoord;0};
+
+	@get_state_name{1};
+	#showme {STATE_NAME: $result};
+};
+
+
+#alias {runtests} {
+       #kill;
+       #read pelt/tests.tin;
+
+       @runtest{test_no_mobs};
+       @runtest{test_no_mobs_go_north};
+       @runtest{test_one_mob};
+       @runtest{test_multiple_mobs};
+};

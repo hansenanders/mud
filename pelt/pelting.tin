@@ -1,0 +1,176 @@
+#class c_pelting kill;
+#class c_pelting open;
+
+#read combat.tin;
+
+#var TESTING 0;
+#list do_action_cmds {};
+
+
+#var state 0;
+#nop states:;
+#nop	0: init;
+#nop	1: search;
+#nop	2: kill;
+#nop	3: reset_x_coord;
+#nop	4: increse_y_coord;
+#nop    5: reset_y_coord;
+
+#function {get_state_name} {
+	  #switch {%1} {
+	  	  #case 0 {#return {INIT}};
+	  	  #case 1 {#return {SEARCH}};
+	  	  #case 2 {#return {DESTROY}};
+	  	  #case 3 {#return {RESET_X_COORD}};
+	  	  #case 4 {#return {INCREASE_Y_COORD}};
+	  	  #case 5 {#return {RESET_Y_COORD}};
+	  };
+	  #return {UNDEFINED_STATE};
+};
+
+#high {SWITCHING STATE FROM %1 TO %2} {b tan, black};
+#function {switch_state} {
+	  #showme {SWITCHING STATE FROM @get_state_name{$state} TO @get_state_name{%1}};
+	  #var state %1;
+};
+
+#var Y_COORD_MAX 15;
+
+#var y_coord 0;
+#var x_coord 0;
+
+#list mob_coords create {};
+
+#high {A dirty ram} {b yellow, black};
+#high {A meek ewe} {b yellow, black};
+#high {A brown groundhog} {b yellow, black};
+#high {A tired ox} {b yellow, black};
+
+#action {A dirty ram} {@handle_target{ram}};
+#action {A meek ewe} {@handle_target{ewe}};
+#action {A brown groundhog} {@handle_target{groundhog}};
+#action {A tired ox} {@handle_target{ox}};
+
+#action {%*(%*)%*} {
+	#switch {$state} {
+		#case 1 {#math x_coord $x_coord+1};
+		#case 2 {#math x_coord $x_coord-1};
+		#case 3 {#math x_coord $x_coord-1};
+		#case 4 {#math y_coord $y_coord+1};
+	};
+};
+
+#action {is bleeding to death and needs to be bandaged} {kill};
+
+#function {handle_target} {
+	  #switch {$state} { 
+	  	  #case 1 {#list mob_coords add {$x_coord}};
+		  #case 2 {@do_action{kill %1}};
+	  	  #case 4 {#list mob_coords add {$x_coord}};
+          };
+};
+
+#function {do_action} {
+	  #if {$TESTING == 1} {#list do_action_cmds add {%0}};
+	  %1;
+};
+
+
+#action {is bleeding to death and needs to be bandaged} {
+	#showme ACTION__BLEEDING;
+	kill;
+};
+
+
+#action {COMBAT__YOU_KILLED %w} {
+	#showme ACTION__KILLED_TARGET;
+
+	wield dagger;
+	skin corpse;
+	attach pelt to string;
+	eat corpse;
+	wield hammer; 
+};
+
+#action {to your pelt string.} {
+	#showme ACTION__CORPSE_SKINNED;
+	@pop_next_target{};
+	#if {$next_target_coords != -1} {
+		@do_action{do $next_target_coords east};
+	};
+	#else {
+	      @switch_state{3};
+	      @do_action{do $x_coord east};
+	};
+};
+
+#function {pop_next_target} {
+	  #list mob_coords size mob_coords_size;
+	  #if {$mob_coords_size == 0} {
+	      #var next_target_coords -1;
+	      #return;
+	  };
+	  #list mob_coords get $mob_coords_size next_target_coords;
+
+	  #math next_target_coords $x_coord - $next_target_coords;
+	  #list mob_coords delete $mob_coords_size;
+};
+
+#action {The pelt string is too heavily loaded.} {
+	#var;
+	#kill;
+	#nop TODO;
+};
+
+#action {You deposit %d gold.} {
+	#var stats_gold_last_round $stats_kills_this_round+%1;
+};
+
+#action {Your current balance is %d gold.} {
+	#var stats_current_balance %1;
+};
+
+#action {{Do: Commands completed.| %* completed.}} {
+	#switch {$state} {
+		#case 1 {
+		      @pop_next_target{};
+		      #if {$next_target_coords != -1} {
+		      	  #showme {SWITCHING TO KILL MODE!};   
+			  @switch_state{2};
+			  @do_action{do $next_target_coords east};
+	      	      };
+	      	      #else {
+		      	  @switch_state{3};
+		      	  @do_action{do $x_coord east};
+		      };
+		};
+		#case 2 {
+		      #nop TODO;
+		};
+		#case 3 {
+		      #if {$y_coord <= $Y_COORD_MAX} {
+		          @switch_state{4};
+		      	  @do_action{do 1 north};
+		      };
+		      #else {
+		      	  @switch_state{5};
+		          @do_action{do $y_coord south};
+		      };
+		};
+		#case 4 {
+		      @do_search{};
+		};
+	};
+};
+
+#function {do_search} {
+       @switch_state{1};
+       @do_action{do 40 west};
+};
+
+#tab autohunt_linhir;
+#alias {autohunt_linhir} {
+       @do_search{};
+};
+
+#class c_pelting close;
