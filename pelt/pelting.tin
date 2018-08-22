@@ -89,7 +89,7 @@
 	skin corpse;
 	attach pelt to string;
 	eat corpse;
-	wield hammer; 
+	wield sword; 
 };
 
 #action {to your pelt string.} {
@@ -135,7 +135,6 @@
 		#case 1 {
 		      @pop_next_target{};
 		      #if {$next_target_coords != -1} {
-		      	  #showme {SWITCHING TO KILL MODE!};   
 			  @switch_state{2};
 			  @do_action{do $next_target_coords east};
 	      	      };
@@ -148,6 +147,9 @@
 		      #nop TODO;
 		};
 		#case 3 {
+		      #var;
+		      map;
+
 		      #if {$y_coord <= $Y_COORD_MAX} {
 		          @switch_state{4};
 		      	  @do_action{do 1 north};

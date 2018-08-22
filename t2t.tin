@@ -31,11 +31,13 @@
 #tab belegost;
 #tab bree;
 #tab bywater;
+#tab edoras;
 #tab greyhavens;
 #tab lothlorien;
 #tab micheldelving;
 #tab rhosgobel;
 #tab rivendell;
+#tab linhir;
 #tab travelto;
 
 #tab lothlorien_trainer;
@@ -121,9 +123,20 @@
 #alias {thranduils_ess}			{do s,3sw,w,sw,11w,s,w};
 #alias {thranduils_mail}		{do 3s,6w,enter,accompany elf,wear brooch,2n};
 
-#alias {linhir_sell_pelts}		{do city,4s,enter,2s,3sw,2s,2e;3ne,nw,sell all from string,out,3sw,2w,2n,3ne,2n,out,4n,out};
+#alias {linhir_sell_pelts}		{do city,4s,enter,2s,3sw,2s,2e;3ne,nw,sell all pelt, sell all from string,out,3sw,2w,2n,3ne,2n,out,4n,out};
 #alias {linhir_deposit_all}		{do city,4s,enter,2e,se,deposit all,out,2w,out,4n,out};
 #alias {linhir_permit}			{do city,4s,enter,e,n,ask busy clerk about permit, request permit,u,ask secretary about permit,give permit to secretary,get permit,d,s,w,out,4n,out};
+
+
+#tab edoras_to_saruman;
+#tab saruman_to_edoras;
+#tab edoras_to_treebeard;
+#tab treebread_to_edoras;
+
+#alias edoras_to_saruman {do 13n,14w,2nw,2n,enter,e,nw,l window};
+#alias saruman_to_edoras {do out,se,w,out,2s,2se,14e,13s};
+#alias edoras_to_treebeard {do 13n,14w,2nw,2n,enter,e,nw};
+#alias treebread_to_edoras {do se,w,out,2s,2se,14e,13s};
 
 #tab bree_to_greyhavens;
 #alias {bree_to_greyhavens} {
@@ -192,6 +205,34 @@
 #alias {erebor_to_rhosgobel} {
        #read travel.tin;
        #var travelto_path {travelto thranduils;travelto rhosgobel};
+       start_travel;
+};
+
+#tab linhir_to_edoras;
+#alias {linhir_to_edoras} {
+       #read travel.tin;
+       #var travelto_path {travelto minastirith;travelto edoras};
+       start_travel;
+};
+
+#tab edoras_to_linhir;
+#alias {edoras_to_linhir} {
+       #read travel.tin;
+       #var travelto_path {travelto minastirith;travelto linhir};
+       start_travel;
+};
+
+#tab linhir_to_lothlorien;
+#alias {linhir_to_lothlorien} {
+       #read travel.tin;
+       #var travelto_path {travelto minastirith;travelto edoras;travelto lothlorien};
+       start_travel;
+};
+
+#tab lothlorien_to_linhir;
+#alias {lothlorien_to_linhir} {
+       #read travel.tin;
+       #var travelto_path {travelto edoras;travelto minastirith;travelto linhir};
        start_travel;
 };
 
