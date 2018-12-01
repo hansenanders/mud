@@ -1,0 +1,500 @@
+#alias t2t {#ses t2t t2tmud.org 9999;#split;notha;hejsan}
+#alias T2T {#ses t2t t2tmud.org 9999;#split}
+
+#nop Other
+#alias {soka} {do rescue, clear, push, pull, move, touch, sit, climb, kick, scavenge, touch, dig, punch, insert, roll, collect, hammer, pump, grip, snatch, swing, squeeze, slide, slip, jump, approach, chase, turn, slice, release, free, untie, search blah, pry, peruse, reach, scale, crawl, rummage, brush}
+
+#nop dir - West
+#alias {bymic} {#16 w;#3 s;enter}
+#alias {micby} {out;#3 n;#16 e}
+#alias {byfish} {do s,30w}
+#alias {fishby} {do 30e,n}
+#alias {micgold} {do 4n,in,3n,move painting,s,w,n,take figurine; #delay {3} {do take diamond,climb rope,s,e,2s,out,2s,w,give diamond to smith,e,n,e,sell dagger 1,w,3s}}
+#alias {micbow} {do n,3w,3n,w,2n,2w}
+#alias {bowmic} {do 2e,2s,e,3s,3e,s}
+#alias {belsign} {d;s;#2 w;s;w;#2 s;e;#4 s}
+#alias {signbel} {#4 n;w;#2 n;e;n;#2 e;n;u}
+#alias {tunwraith} {do e,s,2e,n,2e,5s,2w,s,2w,2n,e,2n,2w,2s}
+#alias {wraithtun} {do 2n,2e,2s,w,2s,2e,n,2e,5n,2w,s,2w,n,w,n}
+#alias {byannu} {#6 w;#6 n;#2 e;#12 n;enter}
+#alias {annuby} {out;#12 s;#2 w;#6 s;#6 e}
+#alias {byelf} {#9 e;#11 n}
+#alias {elfby} {#11 s;#9 w}
+#alias {elfQ1} {enter;n;shake root;oak;fluff pillow;get dagger into pack;get dagger;sheath dagger;out;s;out}
+#alias {bysparrow} {#11 w;#19 n;#2 e;watch sparrow;woods}
+#alias {bysparrowQ1} {do free ainadan,n,move bushes,dive in water,e,heed ainadan}
+#alias {sparrowby} {do w,u,s,out,2w,19s,11e}
+#alias {bypack} {#9 e;s;gates;se;se;e;get backpack from mailbox;w;nw;nw;nw;n;#9 w}
+#alias {bybank} {n;#4 e;#3 n;#3 e}
+#alias {bankby} {#3 w;#3 s;#4 w;s}
+#alias {byshop} {do n,4e,2n,w}
+#alias {shopby} {do e,2s,4w,s}
+#alias {bydragon} {do s,5e,n,nw,enter,kill hobbit}
+#alias {bydragonQ1} {do take key from corpse,out,3e,kill shirriff}
+#alias {bydragonQ2} {do climb through window,e,shift mat,cellar,climb shelves,wiggle stone,unlock box}
+
+#alias {breeshop} {#2 n;#2 e;town;ne;#2 n;w}
+#alias {shopbree} {e;#2 s;sw;valley;#2 w;#2 s}
+#alias {breesell} {breepelt;peltbree;breeshop;sell all from pack;sell all;shopbree}
+#alias {breebear} {do n,2e,2s,se,e,ne,n,w,scoop bear,give bear to prisca,e,s,sw,w,nw,2n,2w,s}
+#alias {breefeed} {3w,4s,se,se,e,e,ne,open shutters,climb through east window,n,stable,get oats,stall,3feed oats to fatty,out,s,out,s,out,climb through window,sw,w,w,nw,nw,n,n,n,n,e,e,e}
+#alias {breeby} {do s,19w}
+#alias {bybree} {do 19e,n}
+#alias {breeriv} {do 2n,40e,15e,2s,4e,3n}
+#alias {rivbree} {do 3s,4w,2n,15w,40w,2s}
+#alias {breepelt} {do 2e,se;#20 spelt}
+#alias {peltbree} {do nw,2w}
+#alias {breedike} {do 4w,17n}
+#alias {dikebree} {do 17s,4e}
+#alias {dikeQ1} {do 4n,e,n,e,d,2w,nw,w,nw,n}
+#alias {dikeQ2} {do get key from corpse,s,se,s,unlock west door with cobalt key,put key in pack}
+#alias {dikeQ3} {do 2w,nw,sw,e}
+#alias {dikeQ4} {do get sphere from corpse,put sphere in pack}
+#alias {dikeQ5} {do w,ne,se,2e,se,sw,w,wade,swim,dive,2sw,w,s,w,n,nw}
+#alias {dikeQ6} {do get rod from corpse,put rod in pack}
+#alias {dikeQ7} {do se,s,e,n,e,2ne,surface,wade,out,e,2ne,2e,d}
+#alias {dikeQ8} {do get sphere from pack,unlock north door with sphere,put sphere in pack,get rod from pack,n,unlock west door with rod,w,put rod in pack,n,e,2n}
+#alias {dikeQ9} {do get lance,n,ne,se,2n,e,push rocks,hole,u}
+#alias {dikeamon} {do 4n,e,n,e,2d,n,w,n,e,n}
+#alias {amondike} {do s,w,s,e,s,2u,w,s,w,4s}
+#alias {breetroll} {do 2n,40e,6e,3s}
+#alias {trollbree} {do 3n,40w,6w,2s}
+
+#alias {bygrb} {do 4s,5e,2n}
+#alias {grbby} {do 2s,5w,4n}
+#alias {bygrey} {do 2s,34w}
+#alias {greyby} {do 34e,2n}
+#alias {bywiz} {do 3s,24w,enter,2u,n}
+#alias {wizby} {do s,2d,out,24e,3n}
+#alias {bythief} {do n,4e,n,2e,push brick}
+#alias {thiefby} {do out,2w,s,4w,s}
+#alias {greycir} {do 4w,nw,w,enter,n,4u,s}
+#alias {cirgrey} {do n,4d,s,out,e,se,4e}
+#alias {bybel} {do 17s,36w}
+#alias {belby} {do 36e,17n}
+#alias {beladv} {do 9s,enter}
+#alias {advbel} {do out,9n}
+#alias {advstring} {do enter,w,search pile,wear string,search rocks,wear crystal,search papers}
+#alias {advpack} {do 2s,5e,4n,e,se,sw,drop staff,drop sword,search under table,take pulley,search barrel,fix tackle}
+#alias {advpackQ1} {do climb down,search shadows}
+#alias {advpackQ2} {do get ring from corpse,wear ring,climb up,ne,give ring to dwarf}
+#alias {packadv} {do ne,nw,w,4s,5w,2n}
+
+#alias {bybar} {do n,5e,bar}
+#alias {barby} {do out,5w,s}
+#alias {rivred} {do 11s,4w,22s,3e}
+#alias {redriv} {do 3w,22n,4e,11n}
+#alias {redwat} {do 3w,4s,e,2n,2ne,2se,2s}
+#alias {watred} {do 2n,2nw,2sw,2s,w,4n,3e}
+#alias {redlot} {do e,ne,2e,se,3e,2se,2s,se,s,se,7s,13e,n}
+#alias {lotred} {do s,13w,7n,nw,n,nw,2n,2nw,3w,nw,2w,sw,w}
+#alias {lotwat} {lotred;redwat}
+#alias {watlot} {watred;redlot}
+#alias {rivlot} {rivred;redlot}
+#alias {lotriv} {lotred;redriv}
+#alias {breelot} {breeriv;rivlot}
+#alias {lotbree} {lotriv;rivbree}
+
+#alias {rivranger} {s;#2 sw;#2 w;#12 n;#2 e;path;squeeze through gap}
+#alias {rangerriv} {out;#2 w;#12 s;#2 e;#2 ne;n}
+#alias {rangerQ1} {n;ne;untie ranger}
+#alias {rivshop} {ne;ne;#5 e;s;e}
+#alias {shopriv} {w;n;#5 w;sw;sw}
+#alias {rivwiz} {ne;ne;#5 e;s;w}
+#alias {wizriv} {e;n;#5 w;sw;sw}
+#alias {rivheal} {ne;ne;#5 e;n;e}
+#alias {healriv} {w;s;#5 w;sw;sw}
+#alias {rivmail} {#3 s;#10 w;#5 n;path;n;in}
+#alias {mailQ1} {tunnel through earth;shore up tunnel with stick;tunnel}
+#alias {mailQ2} {w;lift chest;get chisel;e;insert chisel into lock;e;search bed;get hammer;w;strike chisel;n;search baskets;drop hammer;wear mail}
+#alias {mailriv} {tunnel;out;s;path;#5 s;#10 e;#3 n}
+#alias {rivsmith} {ne;#6 n}
+#alias {smithriv} {#6 s;sw}
+#alias {rivgob} {s;#2 sw;#2 s;#3 w;#27 s;#2 s;#3 e;part bushes;cave}
+#alias {gobriv} {out;#3 w;#2 n;#27 n;#3 e;#2 n;#2 ne;n}
+#alias {rivgobQ1} {do alcove, }
+#alias {rivblem} {#6 s;#2 e;cave;e;se}
+#alias {blemriv} {#2 w;#6 n}
+#alias {rivblemQ1} {get stone;kill grushk;toss stone into fire}
+#alias {rivblemQ2} {rescue girl;get all into pack;nw;get key from pack;unlock north door;drop key;n;get sword;wield sword}
+#alias {rivbrls} {do s,2sw,18w,2n,2w,17n,6e,ne,move slab,hole}
+#alias {brlsriv} {do sw,6w,17s,2e,2s,18e,2ne,n}
+#alias {brlsQ1} {do search hoard,back,out,sw,6w,17s,2e,2s,18e,2ne,n,2ne,4e,n,give daggers to erestor}
+#alias {rivros} {do 8ne,3n,14e,se,10e,2ne}
+#alias {rosriv} {do 2sw,10w,nw,14w,3s,8sw}
+#alias {rosby} {rosriv;rivbree;breeby}
+#alias {byros} {bybree;breeriv;rivros}
+#alias {breeros} {breeriv;rivros}
+#alias {rosbree} {rosriv;rivbree}
+#alias {rivcrystal} {do 2s,6e,path,dig in dirt,3e,give worm to bird}
+#alias {rivcrystalQ1} {do get egg,cave,give egg to snake}
+#alias {rivcrystalQ2} {do break crystal,get crystal,yard,search nest,get cloth,w,s,request riddle}
+#alias {crystalriv} {do n,2w,out,6w,2n}
+
+#action {What's better than the best thing, and worse than the worst thing?} {#showme answer nothing}
+#action {What grows up while growing down?} {#showme answer a goose}
+#action {At night they come without being fetched. And by day they are lost without being stolen.} {#showme answer stars}
+#action {I know a word of letters three, add two and fewer there will be.} {#showme answer few}
+#action {What's colorless and weightless but if you put it in a barrel, the barrel would become lighter?} {#showme answer a hole}
+#action {How far can a dog run into the woods?} {#showme answer half way}
+#action {If you were to take two apples from three apples how many would you have?} {#showme answer two apples}
+
+#alias {breetha} {#37 s;#13 e}
+#alias {thabree} {#13 w;#37 n}
+#alias {thadru} {se;#19 s;#27 e}
+#alias {drutha} {#27 w;#19 n;nw}
+#alias {breedru} {breetha;thadru}
+#alias {drubree} {drutha;thabree}
+#alias {breeedo} {breetha;thadru;druedo}
+#alias {edobree} {edodru;drutha;thabree}
+#alias {rivdru} {#10 s;#10 w;#10 s;#10 w;#10 s;#9 w;#30 s;#11 e}
+#alias {druriv} {#11 w;#30 n;#9 e;#10 n;#10 e;#10 n;#10 e;#10 n}
+#alias {druedo} {#3 s;#12 e;#3 s;#5 e;#12 s;#10 e;s}
+#alias {edodru} {n;#10 w;#12 n;#5 w;#3 n;#12 w;#3 n}
+#alias {rivedo} {rivdru;druedo}
+#alias {edoriv} {edodru;druriv}
+#alias {drured} {do 11w,27n,28e}
+#alias {reddru} {do 28w,27s,11e}
+#alias {druado} {do s,se,e,se,e,se,s,sw,s,se,s,sw,se,2s,sw,s,sw,2w,sw,2w,s}
+#alias {adodru} {do n,2e,ne,2e,ne,n,ne,2n,nw,ne,n,nw,n,ne,n,nw,w,nw,w,nw,n}
+#alias {adopan} {do n,2e,ne,5e}
+#alias {adopanQ1} {do path,further,yard,search well,pull rope}
+#alias {adopanQ2} {do get bucket,barn,further,e,fill bucket with oats,out,out,unlatch gate,gate,latch gate,tame horse,unlatch gate,lead horse,gate,barn,e,out,w,tie horse,out,back,e}
+#alias {panado} {do out,out,path,path,out,5w,sw,2w,s}
+#alias {adopack} {do 3n,3e,cottage,w,kill cat}
+#alias {adopackQ1} {do wield knife,skin cat,e,n,give pelt to crone,ask crone about scissors,get scissors,give scissors to crone,closet,pull thread,out,give thread to crone,s,e,get needle,w,n,give needle to crones}
+#alias {packado} {do out,3w,3s}
+
+#nop dir - East
+#alias {lotdwh} {do 13n,8w}
+#alias {dwhlot} {do 8e,13s}
+#alias {lotdwhQ1} {do enter,push brush,press crevice}
+#alias {norlot} {do 3n,11w,7n,10w,10n,6e,n}
+#alias {lotnor} {do s,6w,10s,10e,7s,11e,3s}
+#alias {lotedo} {lotnor;noredo}
+#alias {edolot} {edonor;norlot}
+#alias {lotsav} {#2 e;n;enter}
+#alias {savlot} {out;s;2w}
+#alias {savbuck} {get bucket;out;e;get bucket;draw water from stream;w;enter;give bucket to savareth;drop bucket}
+#alias {lotcar} {#2 s;e;#3 n;#2 ne}
+#alias {carlot} {#2 sw;#3 s;w;#2 n}
+#alias {lotshop} {lotcar;2n;u}
+#alias {shoplot} {d;2s;carlot}
+#alias {lotheal} {lotcar;3n;2e;u}
+#alias {heallot} {d;2w;3s;carlot}
+#alias {carshield} {#3 n;#5 e;#3 s;w;#3 u;nw;search pile;get shield;se;#3 d;e;#3 n;#5 w;#3 s}
+#alias {lotdaw} {n;#5 w;nw;ne;nw;enter;#2 u}
+#alias {dawlot} {#2 d;out;se;sw;se;#5 e;s}
+#alias {lotmor} {do s,13w,7n,nw,n,2nw}
+#alias {morlot} {do 2se,s,se,7s,13e,n}
+
+#alias {rosjarl} {#15 e;#8 n}
+#alias {jarlros} {#8 s;#15 w}
+#alias {jarlQ1} {do s,ne,wield knife,cut nightshade}
+#alias {jarlQ2} {do sw,get string,w,build trap,e,w,kill rabbit}
+#alias {jarlQ3} {do wield knife,skin corpse,drop pelt,get corpse,doctor corpse with nightshade,get meat,cave,feed wolf with meat}
+#alias {jarlQ4} {do get fang from corpse of menacing wolf,out,e,n,give fang to hermit}
+#alias {rosfram} {#2 sw;#15 w;#32 n}
+#alias {framros} {#32 s;#15 e;#2 ne}
+#alias {framgun} {do 2w,7n,4w,nw}
+#alias {gunfram} {do se,4e,7s,2e}
+#alias {gunfis} {do climb rocks,n,nw,w,w,search shadow,squeeze through passage,n}
+#alias {fisgun} {do out,get cloak from skeleton,wear cloak,light cloak,s,climb into hole,out,e,se,s,climb down}
+#alias {fisrag} {do fissure, nw, down, north, nw, north, west, turn torch, west, north, move tapestry, unlock west door, west, push orc into maiden}
+#alias {fisragQ1} {do loosen rack, search heaps, drop key, wear armour}
+#alias {ragfis} {do 4e,s,e,s,se,s,u,se,s}
+#alias {fislegQ1} {do fissure,nw,d,n,nw,get torch,n,w,s,get rags,wrap rags around torch,n,2e,search packages,get key,n,search under table,unlock chest with key,drop key,open chest,get bottle from chest,open bottle,pour oil onto torch,s,w,push axe,kill spider,light torch,burn web}
+#alias {legfis} {do s,out,s,se,s,u,se,s}
+#alias {fislegQ2} {do n,get shield,s,dust shield}
+#alias {fisvial} {do nw,fissure,nw,d,n,nw,n,w,2n,pull plank,get plank,wield plank,lever rock,hole,get sword from skeleton,2w,2nw,slide rusty sword into crack,chamber,sip from fountain}
+#alias {vialfis} {do get vial,stairs,2se,2sw,push front wall,out}
+#alias {rosess} {#12 e;#13 n;w}
+#alias {essros} {e;#13 s;#12 w}
+#alias {roswarg} {#2 sw;#16 w;#4 n;camp;push gate;gate}
+#alias {wargros} {out;out;#4 s;#16 e;#2 ne}
+#alias {rosheal} {do 33s,11e,path,e}
+#alias {healros} {do w,path,11w,33n}
+#alias {rosdm} {do 16e,40s,40s,15s}
+#alias {dmros} {do 15n,40n,40n,16w}
+#alias {dmpath} {do 4n,11e,2s}
+#alias {pathdm} {do 2n,11w,4s}
+#alias {pathalt} {do 9s,sw,se,s,se,2s,se,sw,se,s,2se,sw,2s}
+#alias {altpath} {do u,n,ne,2nw,n,nw,ne,nw,2n,nw,n,nw,ne,9n}
+#alias {altQ1} {do u,n,ne,n,ne,n,nw,4n,nw,n,nw,21n,12w,s,w,s,w,3s,sw,search stones,get arm into pack}
+#alias {Q1alt} {do ne,3n,5e,n,2e,n,5e,2s,e,s,e,18s,se,s,se,4s,se,s,sw,s,sw,s}
+#alias {roslot} {do 2sw,9w,9s,5w,35s}
+#alias {lotros} {do 35n,5e,9n,9e,2ne}
+#alias {rosedo} {roslot;lotedo}
+#alias {edoros} {edolot;lotros}
+#alias {nordm} {do 17e,28s}
+#alias {dmnor} {do 28n,17w}
+#alias {edodm} {edonor;nordm}
+#alias {dmedo} {dmnor;noredo}
+#alias {dmgol} {do s,get rope,se,ravine,s,se,d,s,se,s,se,s}
+#alias {goldm} {do n,nw,n,nw,n,climb,nw,n,ravine,nw,n}
+#alias {edonor} {do 6n,30e,27n}
+#alias {noredo} {do 27s,30w,6s}
+#alias {nordol} {do 4e,23n,3e}
+#alias {dolnor} {do 3w,23s,4w}
+#alias {edodol} {edonor;nordol}
+#alias {doledo} {dolnor;noredo}
+
+#alias {dolglobe} {do 5e,ne,n,e,n,climb wall}
+#alias {globedol} {do climb down,s,w,s,sw,5w}
+
+#alias {edomeg} {n;#2 e;#4 se;#3 s;#4 se;#4 e;#2 se;#3 e;#2 se;#6 e;se;#5 s;w}
+#alias {megedo} {e;#5 n;nw;#6 w;#2 nw;#3 w;#2 nw;#4 w;#4 nw;#3 n;#4 nw;#2 w;s}
+#alias {megosgw} {do 30e,4s,3e}
+#alias {osgwmeg} {do 3w,4n,30w}
+#alias {osgwmin} {do 2sw,8s,2e,sw,2s}
+#alias {minosgw} {do 2n,ne,2w,8n,2ne}
+#alias {osgwosg} {do 6e,ne,se,2e,se,e,gate,2e,s}
+#alias {osgosgw} {do n,2w,knock on gate,w,nw,2w,nw,sw,6w}
+#alias {minosg} {minosgw;osgwosg}
+#alias {osgmin} {osgosgw;osgwmin}
+#alias {edoosg} {edomeg;megosgw;osgwosg}
+#alias {osgedo} {osgosgw;osgwmeg;megedo}
+#alias {edoalexa} {n;#2 e;#4 se;#3 s;#4 se;#4 e;#2 se;#3 e;#2 se;#6 e;se;#5 s;w;u;enter;#5 n;e;s}
+#alias {alexaedo} {n;w;#5 s;out;d;e;#5 n;nw;#6 w;#2 nw;#3 w;#2 nw;#4 w;#4 nw;#3 n;#4 nw;#2 w;s}
+#alias {edoten} {#10 n;#13 w;#5 n;e;get rope;throw rope;climb rope;e;n}
+#alias {tenedo} {w;#5 s;#13 e;#10 s}
+#alias {edotree} {#13 n;#14 w;#2 nw;#2 n;enter;e;nw}
+#alias {treeedo} {se;w;out;#2 s;#2 se;#14 e;#13 s}
+#alias {edohelm} {n;w;sw;#3 w;nw;#7 w;sw;climb cliff;sw;climb rocks;nw;climb ridge;w;cave}
+#alias {edohelmQ1} {do 2out,e,climb down ridge,se,climb down rocks,ne,climb down,ne,7e,se,3e,ne,9n,4e,n,yard,enter,give band to eretria}
+#alias {helmedo} {do 2out,3w,11s}
+#alias {edoheal} {do 3s,3e,3s,w}
+#alias {healedo} {do e,3n,3w,3n}
+#alias {rosdol} {#44 s;#6 e}
+#alias {dolros} {#6 w;#44 n}
+#alias {dolnec} {do w,15s,2e,s,e,s,e,s,e,14s}
+#alias {necdol} {do 14n,w,n,w,n,w,n,2w,15n,e}
+#alias {megmin} {do 31e,6s,8s,2e,s,w,2s}
+#alias {minmeg} {do 2n,e,n,2w,8n,6n,31w}
+#alias {edomin} {edomeg;megmin}
+#alias {minedo} {minmeg;megedo}
+#alias {mingot} {do 2n,2ne,5e,ne,5e,ne,7e}
+#alias {gotmin} {do 7w,sw,5w,sw,5w,2sw,2s}
+#alias {edolin} {edomin;minpel;pellin}
+#alias {linedo} {linpel;pelmin;minedo}
+#alias {dmmor} {do 2n,5e,2n,14e,19s}
+#alias {mordm} {do 19n,14w,2s,5w,2s}
+#alias {harmor} {do 11n,5e,8s}
+#alias {morhar} {do 8n,5w,11s}
+#alias {morpass} {do 8n,move pile,untie orc}
+#alias {passmor} {do out,8s}
+
+#nop MORDOR
+#alias {gatetd} {do 2s,e,2s,2e,5s,sw,3w,nw,n,gateway}
+#alias {tdgate} {do out, s, se, 3e, ne, 5n, 2w, 2n, w, 2n}
+#alias {gatetdQ1} {do give 10 gold to orc, n, search bed}
+#alias {gatetdQ2} {do read black book, s, give 10 gold to orc, pull east torch, d, n}
+#alias {gatetdQ3} {do get dagger from corpse, get key from corpse;do unlock south door with skull key,drop skull key,2s,u,search walls}
+#alias {isengate} {do 2n,3w,7n}
+#alias {gateisen} {do 7s, 3e, 2s}
+#alias {isencu} {do sw,2w,sw,s,se,s,se,4s,u,s,7w,n,3w,nw,w,nw,n,2ne,e,ne,e,3ne,n,ne,2n,nw,ne}
+#alias {cuisen} {do sw, se, 2s, sw, s, 3sw, w, sw, w, 2sw, s, se, e, se, 3e, s, 7e, n, d, 4n, nw, n, nw, n, ne, 2e, ne}
+#alias {isenpack} {do se,4e,se,5e,se,s,se,sw,4w,sw,w,4sw,ne,nw,2n,nw,2n,nw,ne,sw,nw,n,ne}
+#alias {gatecu} {gateisen;isencu}
+#alias {cugate} {cuisen;isengate}
+#alias {curonk} {trigger ronk todo help topics;do sw,2w,sw,s,se,s,2sw,w,sw,2w,sw,4w,sw,2w,sw,3w}
+#alias {cuwell} {do tower,nw,w,n,kitchen,larder,d,2e,n}
+#alias {wellcu} {do s,2w,u,out,scullery,messhall,e,se,out}
+#alias {isenbar} {do se,4e,se,5e,se,s,se,2s}
+#alias {barisen} {do 2n,nw,n,nw,5w,nw,4w,nw}
+#alias {gatewell} {do e,tunnel,nw,w,3nw,2n,4nw,staircase,3n,gate, stairs, u, w, n}
+#alias {wellgate} {do s,stairs,d,w,out,3s,tunnel,4se,2s,3se,e,se,tunnel,w}
+#alias {wellshop} {do s,stairs,d,w,passage}
+#alias {shopwell} {do passage,stairs,u,w,n}
+#alias {wellmor} {do l in well,2e,search wall,e,7s}
+#alias {gateasb} {do 2s,e,2s,2e,5s,se,4e,se,5e,se,3e}
+#alias {gateraz} {do 2s,e,2s,2e,5s,se,4e,2n}
+#alias {razgate} {do 2s,4w,nw,5n,2w,2n,w,2n}
+
+#nop Thranduils
+#alias {rosthran} {#14 n;#28 e;#5 n}
+#alias {thranros} {#5 s;#28 w;#14 s}
+#alias {thranere} {#3 n;#9 e}
+#alias {erethran} {#9 w;#3 s}
+#alias {thranskull} {#19 n;turn torch;n;e}
+#alias {skullthran} {s;out;#19 s}
+#alias {skullQ1} {get key from corpse;w;pull bone;unlock chest with key;drop key;open chest;get shield from chest;wear shield}
+#alias {thranbar} {stairs;terrace;gates;knock on gates;deeper;deeper;w;nw;n;nw;n}
+#alias {barthran} {s;se;s;se;e;out;out;out;terrace;stairs;bridge}
+#alias {thranshop} {stairs;terrace;gates;knock on gates;deeper;deeper;w;nw;n;nw;w;sw;sw;e}
+#alias {shopthran} {w;ne;ne;e;se;s;se;e;out;out;out;terrace;stairs;bridge}
+#alias {thranbank} {stairs;terrace;gates;knock on gates;deeper;deeper;w;nw;sw;nw}
+#alias {bankthran} {se;ne;se;e;out;out;out;terrace;stairs;bridge}
+#alias {thranaxe} {#5 n;#7 e}
+#alias {axethran} {#7 w;#5 s}
+#alias {thranaxeQ1} {camp;w}
+#alias {thranaxeQ2} {get key from corpse;prison;unlock shackles}
+#alias {thranaxeQ3} {out;e;s;enter}
+#alias {thranmaeg} {do 3s,6w,enter,accompany elf,wear brooch}
+#alias {maegthran} {do 6e,3n}
+#alias {thranereb} {do 3n,9e}
+#alias {erebthran} {do 9w,3s}
+#alias {erebbkd} {do 2n,2d,w,push indentations,nw,2w,s}
+#alias {bkdereb} {do n,2e,se,out,e,2u,2s}
+#alias {thranbkd} {thranereb;erebbkd}
+#alias {bkdthran} {bkdereb;erebthran}
+#alias {rosbkd} {rosthran;thranbkd}
+#alias {bkdros} {bkdthran;thranros}
+#alias {thrancom} {do 4n,8w,camp,nw,n}
+#alias {thrancomQ1} {do ask commander about celebelen,read diary,s,se,out,2s,e,path,s,examine underbrush,reassure elf}
+#alias {thrancomQ2} {do n,forest,w,2n,camp,nw,n,inform commander about attack,s,se,out,2s,e,path,s,sw}
+#alias {thrancomQ3} {do n,ne,n,forest,w,2n,camp,nw,n,report,get key,unlock chest with key,open chest}
+#alias {comthran} {do s,se,out,8e,4s}
+
+#alias {orccomthran} {do n,ne,n,forest,7e,2s}
+#alias {thranorccom} {do 2n,7w,path,s,sw,s}
+
+#nop dir - Outside Mordor
+#alias {osghar} {n;ne;#10 n;#2 w}
+#alias {harosg} {#2 e;#10 s;sw;s}
+
+#nop dir - South
+#alias {min02} {enter;yes;#3 w;n;d;#3 e;#2 ne;gate}
+#nop #alias {min02} {enter;#5 s;#2 sw;gate}
+#alias {min20} {gate;#2 ne;#5 n;pelennor;yes}
+#alias {min23} {#4 ne;#7 n;#4 nw;gate}
+#alias {min32} {gate;#4 se;#7 s;#4 sw}
+#alias {min34} {#2 se;#4 s;#2 sw;gate}
+#alias {min43} {gate;#2 ne;#4 n;#2 nw}
+#alias {min45} {ne;#4 n;nw;gate}
+#alias {min54} {gate;se;#4 s;sw}
+#alias {min56} {se;#2 s;sw;gate}
+#alias {min65} {gate;ne;#2 n;nw}
+#alias {min67} {nw;ne;n;gate}
+#alias {min76} {gate;s;sw;se}
+
+#alias {min4pants} {sw;#3 w;#2 nw;#4 n;nw;get document;n;give document to leord;get document;s;se;#2 ne;n;ne;search pile}
+#alias {minpants} {min02;min23;min34;min4pants}
+#alias {minpantsQ1} {put sword in pack;put axe in pack;reach in hole;wear pants}
+#alias {pantsmin4} {sw;s;#2 sw;#4 s;#2 se;#3 e;ne}
+#alias {pantsmin} {pantsmin4;min43;min32;min20}
+#alias {min7ess} {2w,nw,w,2s,d,w,archway,e,archway}
+#alias {min7essQ1} {do pull tap,push barrel,ladder,turn torch,e,unbar south door,s,pry grating,pit,pry grating,2e,climb ladder}
+#alias {min7essQ2} {do wield elven short sword,pry grating}
+#alias {min7essQ3} {do 5drop pasty from pack,kill man}
+#alias {essmin} {do w,nw,2n,nw,w,nw,w,nw,ne,2n}
+#alias {min2shield} {do 4ne,7n,4nw,3w,n,get barrel,s,3e,gate,2se,4s,2sw,gate,ne,4n,2nw,2w,2s,get wrench,2n,2e,2se,4s,sw,gate,2ne,4n,2nw,gate,4se,s,nw,turn tap,drop wrench,se,w,make lid,get lid,e,nw,cover full barrel,roll covered barrel,e,4n,e,give voucher to weaver,get handkerchief,w,n,4nw,3w,n,w,give handkerchief to wiltas,wear shield}
+#alias {shieldmin2} {do e,s,3e,4se,7s,4sw}
+
+#alias {pelkadn} {#2 se;#13 e;#2 s}
+#alias {kadnpel} {#2 n;#13 w;#2 nw}
+#alias {kadnkad} {#8 s}
+#alias {kadkadn} {#8 n}
+#alias {pelkad} {pelkadn;kadnkad} 
+#alias {kadpel} {kadkadn;kadnpel}
+#alias {kadheal} {do 10s,5w,clearing,ne}
+#alias {healkad} {do sw,plains,5e,10n}
+#alias {kadlin} {kadpel;pellin}
+#alias {linkad} {linpel;pelkad}
+#alias {kadgal} {do 23s,35w,gate,nw,e}
+#alias {galkad} {do w,2se,35e,23n}
+#alias {galheal} {do w,2n,e}
+#alias {healgal} {do w,2s,e}
+#alias {kadass} {do s,29s,8e,2n}
+#alias {asskad} {do 2s,8w,29n,n}
+#alias {kadstop} {#30 s;#13 e;#4 s;#20 s;#12 e}
+#alias {stopkad} {#12 w;#20 n;#4 n;#13 w;#30 n}
+#alias {stopout} {do 5e,11s}
+#alias {outstop} {do 11n,5w}
+#alias {kadout} {kadstop;stopout}
+#alias {outkad} {outstop;stopkad}
+#alias {outheal} {do gate,s,e,se}
+#alias {healout} {do nw,w,n,out}
+#alias {linstop} {linpel;pelkadn;kadnkad;kadstop}
+#alias {stoplin} {stopkad;kadkadn;kadnpel;pellin}
+#alias {chkumb} {do 13s,11w,40w,40w,7sw,4s,sw,3w}
+#alias {umbchk} {do 3e,ne,4n,7ne,40e,40e,11e,13n}
+#alias {asschk} {do s,5e,6s}
+#alias {chkass} {do 6n,5w,n}
+#alias {kadumb} {kadass;asschk;chkumb}
+#alias {umbkad} {umbchk;chkass;asskad}
+#alias {umbshady} {do e,8s,39w,9s,15w,4s,hilltop}
+#alias {umbshadyQ1} {do ask character about chainmail,kill character}
+#alias {umbshadyQ2} {do e,dig through rubble}
+#alias {umbshadyQ3} {do hole,s,search webs,kill assassin}
+#alias {umbshadyQ4} {do push boulders,n,e,search webs,get bag,w,s,tunnel,2further,search sand,crush skeleton,wear all}
+#alias {umbshadyQ5} {get axe}
+#alias {umbshadyQ6} {do dig further,2s,3e}
+#alias {shadyumb} {do plains,4n,15e,9n,39e,8n,w}
+
+#alias {minpel} {#2 s;#2 sw;#4 s;sw;w;#10 s;#8 w;#10 s}
+#alias {pelmin} {#10 n;#8 e;#10 n;e;ne;#4 n;#2 ne;#2 n}
+#alias {pelbar} {gate;sw;se}
+#alias {barpel} {nw;ne;gate}
+
+#alias {pellin} {#4 w;sw;#2 w;sw;#2 w;sw;#2 w;sw;#4 w;nw;n}
+#alias {linpel} {s;se;#4 e;ne;#2 e;ne;#2 e;ne;#2 e;ne;#4 e}
+#alias {linmin} {linpel;pelmin}
+#alias {minlin} {minpel;pellin}
+
+#alias {linsword} {#2 n;e;#7 n;#2 e;#8 s;w;yard}
+#alias {linswordQ1} {house;offer help;out;cottage;unlock door;n;drop key}
+#alias {linswordQ2} {search algae in box;wield sword;s;out}
+#alias {swordlin} {out;e;#8 n;#2 w;#7 s;w;#2 s}
+#alias {linpermit} {city;#4 s;enter;e;n;request staying permit;u;give permit to secretary;get permit;d;s;w;out;#4 n;out}
+#alias {linshop} {city;#4 s;enter;se;se;se;sw;nw}
+#alias {shoplin} {out;ne;nw;nw;nw;out;#4 n;out}
+#alias {lininn} {city;#4 s;enter;e;#3 s}
+#alias {innlin} {e;out;#2 n;w;out;#4 n;out}
+#alias {linbank} {city;#4 s;enter;#2 e;se}
+#alias {banklin} {out;#2 w;out;#4 n;out}
+#alias {linbar} {linpel;pelbar}
+#alias {barlin} {barpel;pellin}
+#alias {lintar} {#10 w;#15 n;enter}
+#alias {tarlin} {out;#15 s;#10 e}
+#alias {linlen} {s;se;#8 e;#7 n;w}
+#alias {lenlin} {e;#7 s;#8 w;nw;n}
+#alias {lincut} {city;#4 s;enter;#5 se;out;#5 e}
+#alias {cutlin} {#5 w;enter;#5 nw;out;#4 n;out}
+#alias {tarheal} {do out,4e,3n,3w}
+#alias {healtar} {do 3e,3s,4w,enter}
+#alias {tarflower} {tarheal;get flower from pack;get flower;give flower to healer;healtar}
+#alias {linheal} {do w,n,nw,4n,nw,4n,nw,n,nw,2n,nw,n,3w;get flower from pack;give flower to healer}
+#alias {heallin} {do 3e, s, se, 2s, se, s, se, 4s, se, 4s, se, s, e}
+#alias {linsell} {linshop;sell all from pack;sell all;#30 spelt;shoplin;ww;i}
+#alias {lindep %1} {linbank;deposit %1;banklin}
+
+#alias {tardol} {out;#7 s;#22 w;n;enter}
+#alias {doltar} {out;s;#22 e;#7 n;enter}
+#alias {lindol} {lintar;tardol}
+#alias {dollin} {doltar;tarlin}
+#alias {tarshield} {nw;warn elder;se;tardol;dolpack;give note to scribe;packdol;doltar}
+
+#alias {dolpack} {#2 w;#2 n;#3 w;s;w}
+#alias {packdol} {e;n;#3 e;#2 s;#2 e}
+
+#action {In what year did Galador die?} {#showme answer 2129}
+#action {In what year did Amroth and Nimrodel leave Lorien?} {#showme answer 1981}
+#action {What is the name of the "Elf Haven" in South Gondor from which Amroth's elves sailed?} {#showme answer Edhellond}
+#action {What river forms the northern boundary of Belfalas?} {#showme answer Ringlo}
+#action {What Elven lady brought Silvan blood to the Princess of Belfalas when she married into the line?} {#showme answer Mithrellas}
+#action {What was the name of Lord Imrahil's father?} {#showme answer Adrahil}
+#action {What does "Dol Amroth" mean?} {#showme answer Hill of Amroth}
+#action {What was the name of Amroth's father?} {#showme answer Amdir}
+#action {In what year was Dol Amroth founded?} {#showme answer 2004}
+#action {In what famous battle did Amroth's father die?} {#showme answer Dagorlad}
+#action {Who was the first Lord of Dol Amroth?} {#showme answer Galador}
+#action {What river forms the eastern boundary of Belfalas?} {#showme answer Gilrain}
+#action {Who was the twentieth Prince of Belfalas and Lord of Dol Amroth?} {#showme answer Angelimar}
+#action {How did Amroth die?} {#showme answer Drowned}
+#action {What is the name of the river between the Ringlo and the Morthond?} {#showme answer Ciril}
+#action {Who was the "Lady of the White Grotto"?} {#showme answer Nimrodel}
+
+#nop charge => flank
+#nop flank => encircle
+#nop encircle => charge
+#nop defend => regroup
+#nop regroup => charge or regroup
+#action {decides to charge!} {#var order flank;#showme Order = Flank}
+#action {decides to flank!} {#var order encircle;#showme Order = Encircle}
+#action {decides to encircle!} {#var order charge;#showme Order = Charge} 
+#action {decides to defend in place!} {#var order regroup;#showme Order = Regroup}
+#action {decides to regroup!} {#var order charge;#showme Order = Charge}
+#action {Your army is too disorganized!} {#var order regroup;#showme Order = Regroup}
+
+#alias {O} {order $order}
